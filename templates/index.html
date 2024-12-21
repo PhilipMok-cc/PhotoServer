@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Directories</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+</head>
+<body>
+    <h1 style="text-align:center;">Index</h1>
+    <div class="grid-container">
+        {{range .Photos}}
+        <div class="grid-item">
+            <a href="/display/{{.Name}}/">
+                <img src="/photos/{{.Name}}/1.jpg" alt="Thumbnail for {{.Name}}">
+                <div class="overlay">{{.Name}}</div>
+            </a>
+        </div>
+        {{else}}
+        <p>No ablum available.</p>
+        {{end}}
+    </div>
+</body>
+</html>

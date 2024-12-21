@@ -1,0 +1,68 @@
+/* Reset body margin and padding */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style for all images to be centered and responsive */
+img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Style for the fixed index display at the top right corner */
+#indexDisplay {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0,0,0,0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    z-index: 1000;
+}
+
+/* Grid container for photo directories */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Grid item for each photo directory */
+.grid-item {
+    position: relative;
+    text-align: center;
+}
+
+/* Style for images inside grid items */
+.grid-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Overlay for photo directory name */
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-family: Helvetica, Arial, sans-serif;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+    padding: 10px;
+}
+
+/* Show overlay on hover */
+.grid-item:hover .overlay {
+    visibility: visible;
+    opacity: 1;
+}

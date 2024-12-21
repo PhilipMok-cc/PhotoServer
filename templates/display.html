@@ -1,0 +1,16 @@
+<html>
+<head>
+    <title>{{.AlbumName}} Pages</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+    <script src="/static/js/script.js" defer></script>
+</head>
+<body>
+    <!-- Fixed Bottom Index Display -->
+    <div id="indexDisplay" class="index-display">Image 1 of {{.TotalImages}}</div>
+
+    {{range .Images}}
+    <img id="img{{.Index}}" src="/photos/{{$.AlbumName}}/{{.FileName}}" alt="Image {{.IndexPlusOne}}" loading="lazy" /><br/>
+    {{end}}
+</body>
+</html>
