@@ -6,11 +6,18 @@
     <script src="/static/js/script.js" defer></script>
 </head>
 <body>
-    <!-- Fixed Bottom Index Display -->
-    <div id="indexDisplay" class="index-display">Image 1 of {{.TotalImages}}</div>
-
-    {{range .Images}}
-    <img id="img{{.Index}}" src="/photos/{{$.AlbumName}}/{{.FileName}}" alt="Image {{.IndexPlusOne}}" loading="lazy" /><br/>
+    {{range .Chapters}}
+    <div id="chapter-{{.ID}}" class="chapter no-border" data-chapter-name="{{.ID}}">
+        {{range .Images}}
+        <div class="image-container">
+            <img src="/photos/{{$.AlbumName}}/{{.FileName}}" alt="{{.FileName}}">
+        </div>
+        {{end}}
+    </div>
     {{end}}
+    <!-- Fixed Bottom Index Display -->
+    <div id="indexDisplay" class="index-display">Chapter: {{(index .Chapters 0).ID}}, Image 1 of {{.TotalImages}}</div>
+
+    <script src="/static/js/script.js"></script>
 </body>
 </html>

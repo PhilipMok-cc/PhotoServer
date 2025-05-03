@@ -25,6 +25,20 @@ img {
     z-index: 1000;
 }
 
+/* Style for the fixed bottom index display */
+.fixed-index {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 16px;
+    z-index: 1000;
+}
+
 /* Grid container for photo directories */
 .grid-container {
     display: grid;
@@ -65,4 +79,9 @@ img {
 .grid-item:hover .overlay {
     visibility: visible;
     opacity: 1;
+}
+
+/* Make chapter border invisible */
+.chapter.no-border {
+    border: none;
 }
