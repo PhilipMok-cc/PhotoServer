@@ -100,7 +100,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	var photos []Photo
 	for _, dir := range dirs {
-		if dir.IsDir() {
+		if dir.IsDir() && dir.Name() != "@eaDir" {
 			thumbnailPath := filepath.Join(conf.PhotoDir, dir.Name(), "1.jpg")
 			if _, err := os.Stat(thumbnailPath); err == nil {
 				photos = append(photos, Photo{Name: dir.Name()})
@@ -178,7 +178,9 @@ func prepareChapters(dirName string, files []os.DirEntry) ([]Chapter, int) {
 	// Process files and collect subfolders
 	for _, file := range files {
 		if file.IsDir() {
-			subfolders = append(subfolders, file) // Collect subfolders for the next loop
+			if file.Name() != "@eaDir" {
+				subfolders = append(subfolders, file) // Collect subfolders for the next loop
+			}
 			continue
 		}
 
